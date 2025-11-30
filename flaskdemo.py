@@ -1,3 +1,4 @@
+# Modified by lCl0udl for CP1404 Practical 10 - Added proper About page and title display
 from flask import Flask, render_template, request, redirect, url_for, session
 import wikipedia
 
@@ -19,7 +20,7 @@ def home():
 @app.route('/about')
 def about():
     """About page route."""
-    return "I am still working on this"
+    return render_template("about.html")
 
 
 @app.route('/search', methods=['POST', 'GET'])
@@ -36,7 +37,10 @@ def results():
     """Results page route. Render the search results."""
     search_term = session['search_term']
     page = get_page(search_term)
-    return render_template("results.html", page=page)
+    return render_template("results.html",
+                       title=page.title,
+                       summary=page.summary,
+                       url=page.url)
 
 
 def get_page(search_term):
