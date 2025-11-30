@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>About This Wikipedia Search App</h1>
+        <p>This is a Flask + Wikipedia API demo project.</p>
+        <p>Modified by <strong>lCl0udl</strong> for CP1404 Practical 10.</p>
+        <p>Features added:</p>
+        <ul>
+            <li>Proper About page</li>
+            <li>Display Wikipedia page title on results</li>
+            <li>Better separation of data in results template</li>
+        </ul>
+        <p><a href="{{ url_for('search') }}">← Back to Search</a></p>
+    </div>
+{% endblock %}
